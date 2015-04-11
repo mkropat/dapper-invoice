@@ -1,7 +1,7 @@
 \documentclass[letterpaper]{dapper-invoice}
 
 \def\invoiceNo{101}
-\def\total{125}
+\def\balance{137.50}
 \def\duein{15}% days
 
 \def\me{Your~Name}
@@ -27,7 +27,7 @@
         \infoSub{\faMobilePhone}{\small\slshape +1~(555)~555-5555}
         \noalign{\addvspace{8ex}}
         \infoBox{}{
-            {\large\raisebox{.55\height}\$\huge\formatdollars{\total} \arrowbase} \\
+            {\large\raisebox{.55\height}\$\huge\formatdollars{\balance} \arrowbase} \\
             {\small\color{subduedColor} due \duedate{\duein}}
         }
     \end{infoSection}
@@ -63,7 +63,7 @@
     \summaryline{Total}{\$\formatdollars{\InvoiceTotal}}
 
     \summaryline{Paid}{\$\formatdollars{50}}
-    \summaryline{Balance Due}{\$\formatdollars{137.50}} % not really any math support (yet)
+    \summaryline{Balance Due}{\$\formatdollars{\balance}} % not really any math support (yet)
 
 \end{hoursItemizationWithProject}
 

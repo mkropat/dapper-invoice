@@ -2,7 +2,7 @@
 
 A billable-time invoice featuring style over substance.
 
-![Example Screenshot](http://i.imgur.com/VR9AXc8.png)
+![Example Screenshot](http://i.imgur.com/q78jtGu.png)
 
 ### Pre-Requisites
 
