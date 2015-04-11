@@ -1,14 +1,5 @@
 % dapper-invoice.cls -- a billable-hours invoice featuring style over substance
 
-% ## A Note About The Design
-%
-% I am not a designer.  Inspiration for the design comes from
-% stea^H^H^H^Hborrowing design ideas from good looking invoices people have
-% published at [1] among other sources.  The resulting design is not even in
-% the same league, but I think it gets the job done.
-
-% [1] http://www.smashingmagazine.com/2009/11/05/invoice-like-a-pro/
-
 \ProvidesClass{dapper-invoice}[2015/01/18]
 \NeedsTeXFormat{LaTeX2e}
 \LoadClass[11pt]{article}
