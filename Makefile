@@ -1,3 +1,7 @@
+# Makefile forked from Mike Wilcox's resume project Makefile [1]
+#
+# [1] https://github.com/mjw56/mike-wilcox-latex-resume/blob/master/Makefile
+
 .SUFFIXES: .tex .pdf
 
 .PHONEY : default install uninstall clean pdf watch

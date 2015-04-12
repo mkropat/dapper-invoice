@@ -1,6 +1,6 @@
 % dapper-invoice.cls -- a billable-hours invoice featuring style over substance
 
-\ProvidesClass{dapper-invoice}[2015/01/18]
+\ProvidesClass{dapper-invoice}[2015/04/12]
 \NeedsTeXFormat{LaTeX2e}
 \LoadClass[11pt]{article}
 
@@ -14,6 +14,9 @@
 
 % For "At*" hooks
 \RequirePackage{etoolbox}
+
+% For page number calculations
+\RequirePackage{ifthen}
 
 % For adjusting footer
 \RequirePackage{fancyhdr}

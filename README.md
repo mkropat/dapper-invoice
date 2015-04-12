@@ -8,7 +8,13 @@ A billable-time invoice featuring style over substance.
 
 - [TeX Live](https://www.tug.org/texlive/acquire-netinstall.html)
 
+— or —
+
+- [Vagrant](https://www.vagrantup.com/downloads.html)
+
 ### Generating an Invoice
+
+#### Using TeX Live Locally
 
 ```
 cp example.tex your-invoice-101.tex
@@ -17,6 +23,25 @@ make your-invoice-101.pdf
 ```
 
 Your invoice will be created as `your-invoice-101.pdf`
+
+#### Using Vagrant
+
+```
+cp example.tex your-invoice-101.tex
+vagrant up  # this may take a while the first time
+vagrant ssh -c 'cd /vagrant; make REPORT=your-invoice-101 watch'
+```
+
+Now whenever you make changes to `your-invoice-101.tex` on your host machine,
+the watcher inside the VM will automatically build `your-invoice-101.pdf`,
+which will be saved back to the host machine.
+
+When finished editing, input <kbd>Control</kbd>-<kbd>C</kbd> to stop the
+watcher, then run:
+
+```
+vagrant halt
+```
 
 ### Documentation
 
