@@ -122,7 +122,7 @@
     \noalign{\smallskip}
     {\itemizationHeaderStyle Date} &
     {\itemizationHeaderStyle Description} &
-    {\itemizationHeaderStyle Hours} &
+    \multicolumn{2}{l}{\itemizationHeaderStyle Hours} &
     {\itemizationHeaderStyle Rate} &
     {\itemizationHeaderStyle Amount}
     \\
