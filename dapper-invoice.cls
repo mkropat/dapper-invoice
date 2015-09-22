@@ -184,7 +184,7 @@
 
 \newcommand*{\calcamount}[2]{%
     \FPmul\t{#1}{#2}%
-    \formatdollars{\t}%
+    \formatcurrency{\t}%
 %
     \FPadd\gt{\InvoiceTotal}{\t}%
     \global\let\InvoiceTotal\gt%
@@ -261,7 +261,7 @@
     }
 }
 
-\newcommand*{\formatdollars}[1]{%
+\newcommand*{\formatcurrency}[1]{%
     \num[group-separator={,}, group-minimum-digits=3, round-mode=places, round-precision=2]{#1}%
 }
 
