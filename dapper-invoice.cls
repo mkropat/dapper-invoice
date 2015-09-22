@@ -4,6 +4,25 @@
 \NeedsTeXFormat{LaTeX2e}
 \LoadClass[11pt]{article}
 
+% For page number calculations
+\RequirePackage{ifthen}
+
+% To handle key=value options in class definition
+\RequirePackage{kvoptions}
+\SetupKeyvalOptions{%
+    prefix=dapper@
+}
+% Default currency option is "dollar"
+\DeclareStringOption[dollar]{currency}[dollar]
+\ProcessKeyvalOptions*
+
+\RequirePackage{eurosym}
+
+\ifthenelse{\equal{\dapper@currency}{dollar}}{\newcommand{\currencysym}{\$}}{}
+\ifthenelse{\equal{\dapper@currency}{euro}}{\newcommand{\currencysym}{\euro}}{}
+\ifthenelse{\equal{\dapper@currency}{pound}}{\newcommand{\currencysym}{\textsterling}}{}
+
+% Set the standard geometry
 \RequirePackage[hmargin=.75in,vmargin=1in]{geometry}
 
 % For links and metadata
@@ -14,9 +33,6 @@
 
 % For "At*" hooks
 \RequirePackage{etoolbox}
-
-% For page number calculations
-\RequirePackage{ifthen}
 
 % For adjusting footer
 \RequirePackage{fancyhdr}
@@ -206,8 +222,8 @@
     \end{minipage} &
     {\itemizationRowStyle \@formatHoursLeft{#2}} &
     {\itemizationRowStyle \@formatHoursRight{#2}} &
-    {\itemizationRowStyle \$#3} &
-    {\itemizationRowStyle \$\calcamount{#2}{#3}}
+    {\itemizationRowStyle \currencysym#3} &
+    {\itemizationRowStyle \currencysym\calcamount{#2}{#3}}
     \\
     \noalign{\medskip}
 }
@@ -220,8 +236,8 @@
     \end{minipage} &
     {\itemizationRowStyle \@formatHoursLeft{#2}} &
     {\itemizationRowStyle \@formatHoursRight{#2}} &
-    {\itemizationRowStyle \$#3} &
-    {\itemizationRowStyle \$\calcamount{#2}{#3}}
+    {\itemizationRowStyle \currencysym#3} &
+    {\itemizationRowStyle \currencysym\calcamount{#2}{#3}}
     \\
     \noalign{\medskip}
 }

@@ -1,4 +1,7 @@
 \documentclass[letterpaper]{dapper-invoice}
+%\documentclass[letterpaper,currency=dollar]{dapper-invoice}
+%\documentclass[letterpaper,currency=euro]{dapper-invoice}
+%\documentclass[letterpaper,currency=pound]{dapper-invoice}
 
 \newcommand{\invoiceNo}{101}
 \newcommand{\balance}{137.50}
@@ -27,7 +30,7 @@
         \infoSub{\faMobilePhone}{\small\slshape +1~(555)~555-5555}
         \noalign{\addvspace{8ex}}
         \infoBox{}{
-            {\large\raisebox{.55\height}\$\huge\formatcurrency{\balance} \arrowbase} \\
+            {\large\raisebox{.55\height}\currencysym\huge\formatcurrency{\balance} \arrowbase} \\
             {\small\color{subduedColor} due \duedate{\duein}}
         }
     \end{infoSection}
@@ -60,10 +63,10 @@
 
     \beginsummary
 
-    \summaryline{Total}{\$\formatcurrency{\InvoiceTotal}}
+    \summaryline{Total}{\currencysym\formatcurrency{\InvoiceTotal}}
 
-    \summaryline{Paid}{\$\formatcurrency{50}}
-    \summaryline{Balance Due}{\$\formatcurrency{\balance}} % not really any math support (yet)
+    \summaryline{Paid}{\currencysym\formatcurrency{50}}
+    \summaryline{Balance Due}{\currencysym\formatcurrency{\balance}} % not really any math support (yet)
 
 \end{hoursItemizationWithProject}
 
