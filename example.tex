@@ -27,7 +27,7 @@
         \infoSub{\faMobilePhone}{\small\slshape +1~(555)~555-5555}
         \noalign{\addvspace{8ex}}
         \infoBox{}{
-            {\large\raisebox{.55\height}\$\huge\formatdollars{\balance} \arrowbase} \\
+            {\large\raisebox{.55\height}\$\huge\formatcurrency{\balance} \arrowbase} \\
             {\small\color{subduedColor} due \duedate{\duein}}
         }
     \end{infoSection}
@@ -60,10 +60,10 @@
 
     \beginsummary
 
-    \summaryline{Total}{\$\formatdollars{\InvoiceTotal}}
+    \summaryline{Total}{\$\formatcurrency{\InvoiceTotal}}
 
-    \summaryline{Paid}{\$\formatdollars{50}}
-    \summaryline{Balance Due}{\$\formatdollars{\balance}} % not really any math support (yet)
+    \summaryline{Paid}{\$\formatcurrency{50}}
+    \summaryline{Balance Due}{\$\formatcurrency{\balance}} % not really any math support (yet)
 
 \end{hoursItemizationWithProject}
 
