@@ -4,7 +4,7 @@
 
 .SUFFIXES: .tex .pdf
 
-.PHONEY : default install uninstall clean pdf watch
+.PHONY : default install uninstall clean pdf watch
 
 REPORT = example
 SHOW = $(REPORT)
