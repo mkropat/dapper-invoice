@@ -11,5 +11,5 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   config.vm.provision "shell", inline: \
-    'apt-get install -y texlive texlive-fonts-extra texlive-latex-extra texlive-science texlive-xetex'
+    'apt-get install -y texlive texlive-fonts-extra texlive-latex-extra texlive-science texlive-xetex lmodern'
 end
