@@ -42,3 +42,4 @@ clean:
 	rm -rf $(REPORT:%=%.log) $(REPORT:%=%.toc) $(REPORT:%=%.dvi)
 	rm -rf $(REPORT:%=%.ind) $(REPORT:%=%.ilg) $(REPORT:%=%.nls)
 	rm -rf $(REPORT:%=%.nlo) $(REPORT:%=%.out)
+	rm -rf $(REPORT:%=%.pdf)
