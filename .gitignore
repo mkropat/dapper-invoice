@@ -2,4 +2,5 @@
 *.log
 *.out
 *.pdf
+*.gz
 .vagrant/

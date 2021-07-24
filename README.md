@@ -7,10 +7,16 @@ A billable-time invoice featuring style over substance.
 ### Pre-Requisites
 
 - [TeX Live](https://www.tug.org/texlive/acquire-netinstall.html)
+- TeX xetex (siunitx.sty)
+- TeX science (fontawesome.sty)
 
 — or —
 
 - [Vagrant](https://www.vagrantup.com/downloads.html)
+
+— or —
+
+- [Docker](https://www.docker.com/get-started)
 
 ### Generating an Invoice
 
@@ -43,20 +49,41 @@ watcher, then run:
 vagrant halt
 ```
 
+#### Using Docker
+
+Use Docker Hub's [`blang/latex`](https://hub.docker.com/r/blang/latex/) image that comes with a matching .sh file.
+When you first run this .sh file, it will pull the docker image that includes
+all of the latex dependencies.
+
+```
+wget https://raw.githubusercontent.com/blang/latex-docker/master/latexdockercmd.sh
+chmod +x latexdockercmd.sh
+./latexdockercmd.sh  # will pull down image on first use
+```
+
+Then, you can use the .sh file as you would xelatex:
+
+```
+cp example.tex your-invoice-101.tex
+latexdockercmd.sh xelatex [options] your-invoice-101.tex
+```
+
+You invoice will be created as `your-invoice-101.pdf`
+
 ### Documentation
 
 See [example.tex](example.tex) and [dapper-invoice.cls](dapper-invoice.cls) for details.
 
 ### Inspiration
 
-I am not a designer.  Inspiration for the design comes from
+I am not a designer. Inspiration for the design comes from
 stea^H^H^H^Hborrowing design ideas from good looking invoices people have
 [published on the
-net](http://www.smashingmagazine.com/2009/11/05/invoice-like-a-pro/).  The
+net](http://www.smashingmagazine.com/2009/11/05/invoice-like-a-pro/). The
 resulting design is not even in the same league, but I think it gets the job
 done.
 
-I am also not a LaTeX author.  The code borrows heavily from the
+I am also not a LaTeX author. The code borrows heavily from the
 [moderncv](https://launchpad.net/moderncv) package (which I can't recommend
 enough), as well as numerous other packages.
 
