@@ -107,7 +107,7 @@
 }
 
 \newcommand*{\infoSectionStyle}{\hspace{2em}}
-\newcommand*{\infoSubStyle}{\small\slshape}
+\newcommand*{\infoSubStyle}{\small}
 
 \newenvironment{infoSection}{\infoSectionStyle \tabular[t]{@{} r @{\hspace{0.5em}} l}}{\endtabular}
 \newcommand{\infoBox}[2]{
@@ -116,7 +116,8 @@
 }
 \newcommand{\infoSub}[2]{
     \noalign{\vspace{-1.8ex}}
-    {\color{subduedColor} #1} & \begin{minipage}[t]{.35\textwidth} \infoSubStyle #2 \end{minipage} \\
+    {#1} & \begin{minipage}[t]{.35\textwidth} \infoSubStyle #2 \end{minipage} \\
+    %{\color{subduedColor} #1} & \begin{minipage}[t]{.35\textwidth} \infoSubStyle #2 \end{minipage} \\
     \noalign{\addvspace{2ex}}
 }
 
@@ -128,6 +129,29 @@
 \newcommand*{\itemizationHeaderStyle}[0]{\normalsize\color{highlightColor}}
 
 \newcounter{colskipcount}
+
+\newenvironment{basicItemization}{
+    \setcounter{colskipcount}{2}
+    \setlength\LTleft{0pt}
+    \setlength\LTright{0pt}
+    \begin{longtable}{c @{\hspace{1.5em}} p{.6\textwidth} r}
+    \hline
+    \noalign{\smallskip}
+    {\itemizationHeaderStyle Date} &
+    {\itemizationHeaderStyle Description} &
+    {\itemizationHeaderStyle Amount}
+    \\
+    \noalign{\smallskip}
+    \hline
+    \noalign{\bigskip}
+    \endhead
+    \noalign{\bigskip}
+    \hline
+    \endfoot
+    \endlastfoot
+}{
+    \end{longtable}
+}
 
 \newenvironment{hoursItemization}{
     \setcounter{colskipcount}{5}
@@ -190,10 +214,17 @@
     \global\let\InvoiceTotal\gt%
 }
 
+\newcommand*{\calcamountb}[1]{%
+    \formatcurrency{#1}%
+%
+    \FPadd\gt{\InvoiceTotal}{#1}%
+    \global\let\InvoiceTotal\gt%
+}
+
 \newcommand*\@formatFraction[1]{
-    \ifnum\Numerator=25 Â¼\fi%
-    \ifnum\Numerator=50 Â½\fi%
-    \ifnum\Numerator=75 Â¾\fi%
+    \ifnum\Numerator=25 ¼\fi%
+    \ifnum\Numerator=50 ½\fi%
+    \ifnum\Numerator=75 ¾\fi%
 }
 
 \newcommand*\@formatHoursLeft[1]{
@@ -215,7 +246,18 @@
     \fi%
 }
 
-\newcommand{\lineitem}[4]{
+\newcommand{\lineitemb}[3]{  %{Date}{Amount}{Description}
+    {\itemizationRowStyle #1} &
+    \begin{minipage}[t]{.6\textwidth}
+        \begin{itemize}[leftmargin=0pt, labelsep=1pt, itemsep=0pt] \itemizationRowStyle #3 \end{itemize}
+    \end{minipage} &
+    {\itemizationRowStyle \currencysym\calcamountb{#2}}
+    \\
+    \noalign{\medskip}
+}
+
+
+\newcommand{\lineitem}[4]{  %{Date}{Hours}{Rate}{Description}
     {\itemizationRowStyle #1} &
     \begin{minipage}[t]{.6\textwidth}
         \begin{itemize}[leftmargin=0pt, labelsep=1pt, itemsep=0pt] \itemizationRowStyle #4 \end{itemize}
@@ -228,7 +270,7 @@
     \noalign{\medskip}
 }
 
-\newcommand{\lineitemp}[5]{
+\newcommand{\lineitemp}[5]{  %{Date}{Hours}{Rate}{Project}{Description}
     {\itemizationRowStyle #1} &
     {\itemizationRowStyle #4} &
     \begin{minipage}[t]{0.5\textwidth}
