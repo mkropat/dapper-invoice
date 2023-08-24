@@ -77,8 +77,8 @@ See [example.tex](example.tex) and [dapper-invoice.cls](dapper-invoice.cls) for 
 ### Inspiration
 
 I am not a designer. Inspiration for the design comes from
-stea^H^H^H^Hborrowing design ideas from good looking invoices people have
-[published on the
+borrowing design ideas from good looking invoices people have published
+[on the
 net](http://www.smashingmagazine.com/2009/11/05/invoice-like-a-pro/). The
 resulting design is not even in the same league, but I think it gets the job
 done.
