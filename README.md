@@ -23,6 +23,7 @@ A billable-time invoice featuring style over substance.
 #### Using TeX Live Locally
 
 ```
+make vars.tex # so you can add your details
 cp example.tex your-invoice-101.tex
 # make some changes to your-invoice-101.tex
 make your-invoice-101.pdf

@@ -9,11 +9,14 @@
 REPORT = example
 SHOW = $(REPORT)
 
-$(REPORT).pdf: $(REPORT).tex dapper-invoice.cls
+$(REPORT).pdf: vars.tex $(REPORT).tex dapper-invoice.cls
 
 default: pdf
 
-pdf: $(REPORT:%=%.pdf)
+vars.tex:
+	cp .example-vars.tex vars.tex
+
+pdf: vars.tex $(REPORT:%=%.pdf)
 
 .tex.pdf:
 	xelatex $* && xelatex $*
