@@ -23,7 +23,9 @@
           \infoBox{Project}{\projectID}%
         }
         \infoBox{Contact}{\clientContact}
-        \infoSub{\faMobilePhone}{\small\slshape \clientContactNo}
+        \ifdefempty{\clientContactNo}{}{%
+          \infoSub{\faMobilePhone}{\small\slshape \clientContactNo}
+        }
         \infoSub{\tiny\faEnvelope}{\small\slshape \emaillink{\clientContactEmail}}
         \noalign{\addvspace{8ex}}
         \infoBox{}{
